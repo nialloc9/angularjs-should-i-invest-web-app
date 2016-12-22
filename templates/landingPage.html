@@ -1,0 +1,112 @@
+<div class="landingPage" data-ng-controller="landingPageCtrl">
+    <h1>Should I invest?</h1>
+    <p class="welcomeMessage">
+        {{ msg }} {{history | date:"dd-MM-yyyy"}}
+    </p>
+    <br  />
+    <br />
+
+    <!-- Select a user -->
+    <div class="selectACompany">
+        Enter Ticker: <input type="text" placeholder="MSFT" data-ng-model="UserInputTicker"/> <button data-ng-click="userTickerInputBtnClick()">Calculate</button>
+    </div>
+
+
+    <div class="companyDetails">
+        <p>
+            We will get as many of these as possible but you may need to do some research to get the others. Once you have them insert them below:
+        </p>
+
+        <h3>Company Finance:</h3>
+        <ul class="companyFinanceUl">
+            <li>
+                Stock Price: <input type="text" data-ng-model="companyPreviousClose"/>
+            </li>
+            <li>
+                Assets: <input type="number" data-ng-model="companyAssets"/>
+            </li>
+            <li>
+                Liabilites: <input type="number" data-ng-model="companyLiabilities"/>
+            </li>
+            <li>
+                Beta: <input type="number" data-ng-model="companyBeta"/>
+            </li>
+        </ul>
+
+        <h3>Dividends {{totalDividend}}</h3>
+        <ul class="dividendInputArea">
+            <li>
+                Total Dividend Year 1: <input type="number" data-ng-model="dividendYr1"/>
+            </li>
+            <li>
+                Total Dividend Year 2: <input type="number"  data-ng-model="dividendYr2"/>
+            </li>
+            <li>
+                Total Dividend Year 3: <input type="number" data-ng-model="dividendYr3"/>
+            </li>
+            <li>
+                Total Dividend Year 4: <input type="number" data-ng-model="dividendYr4"/>
+            </li>
+            <li>
+                Total Dividend Year 5: <input type="number" data-ng-model="dividendYr5"/>
+            </li>
+            <li>
+                Total Dividend Year 6: <input type="number" data-ng-model="dividendYr6"/>
+            </li>
+            <li>
+                Total Dividend Year 7: <input type="number" data-ng-model="dividendYr7"/>
+            </li>
+        </ul>
+
+        <div class="companyResultsArea" data-ng-show="showResult">
+            <h3>Data Used</h3>
+            <ul>
+                <li>Name: {{companyName}} ({{companySymbol}})</li>
+                <li>Stock Price: {{companyPreviousClose}} {{companyStockCurrency}}</li>
+                <li>Stock Previous Close: {{companyPreviousClose}} {{companyStockCurrency}}</li>
+                <li>Change: <span class="{{changeColor}}">{{companyStockChange}}</span></li>
+            </ul>
+            <br />
+
+            <ul>
+                <li>Yearly Range: {{companyYearRange}} {{companyStockCurrency}}</li>
+                <li>EBITDA: {{companyEBITDA}}</li>
+                <li>Open: <span class="{{openColor}}">{{companyOpen}}</span></li>
+            </ul>
+            <br />
+
+            <ul>
+                <li>Dividend Share: {{companyDividendShare}}</li>
+                <li>Dividend Yield: {{companyDividendYield}}</li>
+                <li>Dividend Pay Date: {{companyDividendPayDate}}</li>
+            </ul>
+            <br />
+
+            <ul>
+                <li class="{{totalDividendColor}}">Total Dividends: {{noOfYearlyDividends}}: {{totalDividend}}</li>
+                <li>Average Yearly Dividend: {{yearlyAverageDividend}}</li>
+                <li>Average Quarterly: {{quarterlyAverageDividend}}</li>
+            </ul>
+            <br />
+
+            <ul>
+                <li>EPS Estimate Next Quarter: {{companyEPSEstimateNextQuarter}}</li>
+                <li>EPS Estimate Current Year: {{companyEPSEstimateCurrentYr}}</li>
+                <li>EPS Estimate Next Year: {{companyEPSEstimateNextYear}}</li>
+                <li class="{{PEGColor}}">Profits To Earnings To Growth: {{companyPEGRatio}}</li>
+            </ul>
+
+            <br />
+
+            <ul>
+                <li class="{{betaColor}}">Beta: {{companyBeta}}</li>
+                <li class="{{debtRatioRatingColor}}">{{debtRatioRatingColor}}Debt Ratio: {{debtRatio}}</li>
+                <li class="{{currentRatioRatingColor}}">Current Ratio: {{currentRatio}}</li>
+            </ul>
+        </div>
+
+        <div class="stockRecommendation" data-ng-show="showResult">
+            <h2>Result: <span class="{{resultColor}}">{{recommendation}}/10</span></h2>
+        </div>
+    </div>
+</div>

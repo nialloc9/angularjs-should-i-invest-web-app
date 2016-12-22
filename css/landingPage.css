@@ -1,0 +1,56 @@
+.landingPage{
+  margin-bottom: 100px;
+}
+
+.landingPage .welcomeMessage{
+  background-color: aliceblue;
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.landingPage .selectACompany input{
+  height: 20px;
+}
+
+.landingPage .selectACompany button{
+  height: 25px;
+  width: 6%;
+}
+
+.landingPage .companyDetails .companyFinanceUl li{
+  list-style: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.landingPage .companyDetails .dividendInputArea li{
+  list-style: none;
+  margin-top: 10px;
+}
+
+.landingPage .companyResultsArea{
+  display: inline-block;
+  border: 1px solid black;
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.landingPage .companyResultsArea ul li{
+  display: inline-block;
+  margin-right: 5%;
+}
+
+/* Positive result */
+.positiveResult{
+  color: #00ff00;
+}
+
+/* Negative result */
+.negativeResult{
+  color: red;
+}
